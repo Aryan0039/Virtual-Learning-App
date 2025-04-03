@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - My Tutorial</title>
+    <link rel="icon" href="https://img.freepik.com/free-vector/vector-education-logo_779267-2080.jpg?t=st=1743703346~exp=1743706946~hmac=24aa24a5fec531eab2356cd129c8c2875ca1f4471badd55af00149cb3114898d&w=826">
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to top left, #ff8a00, #da1b60, #00bcd4); /* Gradient background */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 450px;
+            margin: auto;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9); /* Transparent white background for the form */
+            padding: 30px; /* Increased padding for better spacing */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            width: 100%;
+            height: 475px; /* Height set to 475px */
+            text-align: center;
+            backdrop-filter: blur(10px); /* Adding a blur effect behind the form */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribute space evenly */
+        }
+
+        .form {
+            width: 100%;
+        }
+
+        .form h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px; /* Increased margin for better spacing */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px; /* Increased padding for better input field size */
+            margin: 10px 0; /* Increased margin for better spacing */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            background-color: #f7f7f7;
+            transition: border-color 0.3s ease;
+        }
+
+        .form input:focus {
+            border-color: #ff8a00; /* Warm color for focus state */
+            outline: none;
+            background-color: #fff;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 12px; /* Increased padding for better button size */
+            background-color: #ff8a00; /* Warm orange color for buttons */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px; /* Added margin for better spacing */
+        }
+
+        .form button:hover {
+            background-color: #da1b60; /* A vibrant pink for the hover state */
+        }
+
+        .form a {
+            color: #deb17e; /* Bright color for the Sign Up link */
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .form a:hover {
+            color: #feb47b;
+            text-decoration: underline;
+        }
+
+        .form p {
+            font-size: 14px;
+            color: red;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Increased margin for better spacing */
+            flex-direction: column;
+        }
+
+        .logo img {
+            width: 80px;
+            margin-bottom: 10px; /* Increased margin for better spacing */
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff8a00;
+            /* text-transform: uppercase; */
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <!-- Login Form -->
+            <div id="login-form" class="form">
+                <div class="logo">
+                    <img src="https://img.freepik.com/free-vector/vector-education-logo_779267-2080.jpg?t=st=1742472590~exp=1742476190~hmac=6a7b921735f3a7b0c561d445af4a634c7a45d2595d1c6545be1a32403ffb04e1&w=826" alt="My Tutorial Logo">
+                    <h1>VIRTUAL Learning</h1>
+                </div>
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit">Log In</button>
+                    <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+                    <div id="login-error" class="error-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+    
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+    
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.email === email && user.password === password);
+    
+            const loginError = document.getElementById('login-error');
+            if (user) {
+                loginError.textContent = '';
+                // Set login flag in localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                alert('Login successful!');
+                window.location.href = 'Home Page.html'; // Redirect to Home Page
+            } else {
+                loginError.textContent = 'Invalid email or password';
+            }
+        });
+    </script>
+</body>
+</html>

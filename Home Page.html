@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRTUAL Learning</title>
+    <link rel="icon" href="https://img.freepik.com/free-vector/vector-education-logo_779267-2080.jpg?t=st=1743703346~exp=1743706946~hmac=24aa24a5fec531eab2356cd129c8c2875ca1f4471badd55af00149cb3114898d&w=826">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Home Page.css">
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-left">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <img src="https://img.freepik.com/free-vector/vector-education-logo_779267-2080.jpg?t=st=1742472590~exp=1742476190~hmac=6a7b921735f3a7b0c561d445af4a634c7a45d2595d1c6545be1a32403ffb04e1&w=826" class="logo" alt="Logo" loading="lazy">
+        </div>
+        <div class="nav-middle">
+            <div class="search-container">
+                <input type="text" id="searchBar" placeholder="Search courses..." loading="lazy">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            
+        </div>
+        <div class="nav-right">
+            <button class="nav-btn upload-btn" title="Upload Content">
+                <i class="fas fa-upload"></i>
+            </button>
+            <button class="nav-btn notification-btn" title="Notifications">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </button>
+            <div class="user-dropdown">
+                <button class="user-btn" id="userBtn">
+                    <img src="https://cdn-icons-png.flaticon.com/128/64/64572.png" class="user-icon" alt="User" loading="lazy">
+                </button>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="coming soon.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="coming soon.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="login.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-links">
+            <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+            <a href="coming soon.html"><i class="fas fa-compass"></i> Explore</a>
+            <a href="coming soon.html"><i class="fas fa-bookmark"></i> Subscriptions</a>
+            <a href="coming soon.html"><i class="fas fa-book"></i> Library</a>
+            <a href="coming soon.html"><i class="fas fa-history"></i> History</a>
+            <a href="coming soon.html"><i class="fas fa-list"></i> Playlists</a>
+            <a href="coming soon.html"><i class="fas fa-envelope"></i> Messages</a>
+            <a href="calculator.html"><i class="fas fa-calculator"></i> Calculator</a>
+        </div>
+        <div class="sidebar-footer">
+            <h4>Quick Links</h4>
+            <a href="coming soon.html"><i class="fas fa-question-circle"></i> Help</a>
+            <a href="coming soon.html"><i class="fas fa-comment-alt"></i> Feedback</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="banner-content">
+                <h1>Learn Without Limits</h1>
+                <p>Start, switch, or advance your career with 5,000+ courses from top instructors</p>
+                <button class="cta-btn">Explore Courses</button>
+            </div>
+            <div class="banner-image"></div>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="categories">
+            <h2>Browse by Category</h2>
+            <div class="category-list">
+                <div class="category-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Development</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Business</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Finance</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Design</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Music</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Health</h3>
+                </div>
+            </div>
+        </section>
+        
+<!-- Course Sections with Horizontal Scrolling -->
+<div class="content-platform">
+    <!-- Add this inside your <div class="content-platform"> -->
+    <div id="resultNotFound" style="display: none; text-align: center; padding: 40px; background: rgba(255,255,255,0.9); border-radius: 10px; margin: 20px 0;">
+        <i class="fas fa-search" style="font-size: 3rem; color: #4a6bff; margin-bottom: 15px;"></i>
+        <h3>No courses found</h3>
+        <p>Try different search terms</p>
+    </div>
+    
+    <h2>Trending Courses</h2>
+    <div class="list-container" id="trendingCourses">
+        <div class="vid-list" data-title="Introduction to Programming C">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=RMNEToKACAwGgmFc&amp;list=PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy" ></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="Programing C.html" loading="lazy">Introduction to Programming C</a>
+                <p>By Raghav Garg</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.8 (1.2k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>2,500 Views • 1 day ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Introduction to Java">
+            <div class="video-container" >
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=fMdWriajDaDBvZiF&amp;list=PLfqMhTWNBTe3LtFWcvwpqTkUSlB32kJop" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="Java.html" loading="lazy">Introduction to Java</a>
+                <p>By Shradha Khapra </p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.7 (890)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>2,500 Views • 1 day ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Python Full Courses">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=HXjFKdiFyoHuE9dg&amp;list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="Python.html" loading="lazy">Python Full Courses</a>
+                <p>By Shradha Khapra</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.9 (2.1k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>2,500 Views • 1 day ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Advanced JavaScript">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=UWrQP7hxP78nGvXz&amp;list=PLGjplNEQ1it_oTvuLRNqXfz_v_0pq6unW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="JavaScript.html" loading="lazy">Advanced JavaScript</a>
+                <p>By Piyush Garg</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.6 (1.5k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>5,000 Views • 3 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="React Fundamentals">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=soHznyeWyBlO7sTu&amp;list=PLjVLYmrlmjGfsnKBvTJXO5MRsedAsifpp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="React.html" loading="lazy">React Fundamentals</a>
+                <p>By Wscube Tech</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.8 (3.2k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>7,800 Views • 1 week ago</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Recommended Courses</h2>
+    <div class="list-container" id="recommendedCourses">
+        <div class="vid-list" data-title="DSA in JAVA">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=I1EWCOYB4fGq5XKk&amp;list=PLxgZQoSe9cg2uGKIRzUbWaHRjEuZnAnhj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="DSA java.html" loading="lazy">DSA in JAVA</a>
+                <p>By Raghav Garg</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.7 (2.3k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>5,500 Views • 5 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Data Structures and Algorithms in C">
+            <div class="video-container" >
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=dQZtcC4LUEmERZd3&amp;list=PLdo5W4Nhv31bbKJzrsKfMpo_grxuLl8LU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="DSA Programming C.html" loading="lazy">Data Structures and Algorithms in C</a>
+                <p>By Jeny</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.9 (3.1k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>5,500 Views • 5 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="HTML,CSS,JavaScript, Project, Git & GitHub">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=bReQmi0ghPqeX29l&amp;list=PLfqMhTWNBTe0PY9xunOzsP5kmYIz2Hu7i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="#" loading="lazy">HTML,CSS,JavaScript, Project, Git & GitHub</a>
+                <p>By Alice Brown</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.8 (4.5k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>5,500 Views • 5 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="C++ and DSA Foundation Course">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=qFI1ab3WJ5xTgE3B&amp;list=PLxgZQoSe9cg0df_GxVjz3DD_Gck5tMXAd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"> </iframe>
+            </div>
+            <div class="vid-info">
+                <a href="" loading="lazy">C++ and DSA Foundation Course</a>
+                <p>By Tom White</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.6 (1.8k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>9,000 Views • 1 week ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Node.js Crash Course">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Wl2WsGeD6CwUfYNd&amp;list=PLjVLYmrlmjGea6t69mKA0t7ak6ncqOEoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="#" loading="lazy">Node.js Crash Course</a>
+                <p>By Sarah Lee</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.5 (1.3k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>6,200 Views • 2 weeks ago</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Development Courses</h2>
+    <div class="list-container" id="myCourses">
+        <div class="vid-list" data-title="Web Development">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=FLkgobT7GjszMY0n&amp;list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="Web Devlopment.html" loading="lazy">Web Development</a>
+                <p>By Code with Harry</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.7 (2.6k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>7,200 Views • 5 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="React JS">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=soHznyeWyBlO7sTu&amp;list=PLjVLYmrlmjGfsnKBvTJXO5MRsedAsifpp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="React.html" loading="lazy">React JS</a>
+                <p>By Alex Johnson</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.8 (3.4k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>10,000 Views • 1 week ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Web Dev using MERN stack">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=N-XzqA5S7BBgy9mV&amp;list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="Mern Stack.html" loading="lazy">Web Dev using MERN stack</a>
+                <p>By Babber</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.9 (4.2k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>5,500 Views • 5 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Backend Development">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Wl2WsGeD6CwUfYNd&amp;list=PLjVLYmrlmjGea6t69mKA0t7ak6ncqOEoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="#" loading="lazy">Backend Development</a>
+                <p>By Alice Brown</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.5 (1.7k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>5,500 Views • 5 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Mobile App Development">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=UWrQP7hxP78nGvXz&amp;list=PLGjplNEQ1it_oTvuLRNqXfz_v_0pq6unW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="vid-info">
+                <a href="#" loading="lazy">Mobile App Development</a>
+                <p>By Jane Smith</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ 4.6 (2.0k)</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>8,300 Views • 2 weeks ago</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Upcoming Courses</h2>
+    <div class="list-container" id="upcomingCourses">
+        <div class="vid-list" data-title="Machine Learning">
+            <div class="video-container" style="background-image: url('https://th.bing.com/th/id/OIP.XWm2LWgH6mST-xqCJOPGHgHaE8?rs=1&pid=ImgDetMain');">
+                <!-- Empty container for fixed background image -->
+            </div>
+            <div class="vid-info">
+                <a href="coming soon.html" loading="lazy">Machine Learning</a>
+                <p>By Michael Brown</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ Coming Soon</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>3,000 Views • 2 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Generative Ai">
+            <div class="video-container" style="background-image: url('https://th.bing.com/th/id/OIP.dgpd5-88RzU-EIk8hNTI9QHaEK?w=1600&h=900&rs=1&pid=ImgDetMain');">
+                
+            </div>
+            <div class="vid-info">
+                <a href="coming soon.html" loading="lazy">Generative Ai</a>
+                <p>By Michael Brown</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ Coming Soon</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>3,000 Views • 2 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Deep learning">
+            <div class="video-container" style="background-image: url('https://th.bing.com/th/id/OIP.9GCywcwqCNEn2VFl7xrvNQHaE7?rs=1&pid=ImgDetMain');">
+                
+            </div>
+            <div class="vid-info">
+                <a href="coming soon.html" loading="lazy">Deep learning</a>
+                <p>By Michael Brown</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ Coming Soon</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>3,000 Views • 2 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Quantum Computing">
+            <div class="video-container" style="background-image: url('https://th.bing.com/th/id/OIP.VweJuj7drkYkoR3bnj_v2QHaD3?rs=1&pid=ImgDetMain');">
+                
+            </div>
+            <div class="vid-info">
+                <a href="coming soon.html" loading="lazy">Quantum Computing</a>
+                <p>By Michael Brown</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ Coming Soon</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>3,000 Views • 2 days ago</p>
+            </div>
+        </div>
+        <div class="vid-list" data-title="Blockchain Development">
+            <div class="video-container" style="background-image: url('https://th.bing.com/th/id/OIP.RY3PYk7KGZ5yeBvu-VZ5_AHaGT?w=270&h=230&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2');">
+                
+            </div>
+            <div class="vid-info">
+                <a href="coming soon.html" loading="lazy">Blockchain Development</a>
+                <p>By Sarah Johnson</p>
+                <div class="course-meta">
+                    <span class="rating">⭐ Coming Soon</span>
+                    <span class="price">Free</span>
+                </div>
+                <p>4,500 Views • 1 week ago</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3>10,000+</h3>
+                <p>Happy Students</p>
+            </div>
+            <div class="stat-card">
+                <h3>500+</h3>
+                <p>Expert Instructors</p>
+            </div>
+            <div class="stat-card">
+                <h3>5,000+</h3>
+                <p>Online Courses</p>
+            </div>
+            <div class="stat-card">
+                <h3>24/7</h3>
+                <p>Learning Support</p>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <h2>What Our Students Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"This platform transformed my career. The courses are well-structured and taught by industry experts."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://th.bing.com/th/id/OIP.YXS8wGoBrnvPJED7hZGByAHaHa?rs=1&pid=ImgDetMain" alt="Student">
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I was able to learn at my own pace while working full-time. The mobile app makes learning on the go so easy."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://th.bing.com/th/id/OIP.X_ZG4Wkhlz4HTXWxKAtuuAAAAA?rs=1&pid=ImgDetMain" alt="Student">
+                        <div>
+                            <h4>Michael Chen</h4>
+                            <p>Data Scientist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The quality of courses exceeded my expectations. I landed my dream job after completing the Full Stack program."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://img.freepik.com/premium-photo/student-photo_403587-296.jpg" alt="Student">
+                        <div>
+                            <h4>David Wilson</h4>
+                            <p>Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Companies Section -->
+        <section class="companies">
+            <h2>Thousands of students achieved their <span class="highlight">dream job at</span></h2>
+            <div class="company-logos">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/ec5be16b046b62a2a860b67f9dc55b86.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1183" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/ee17a1d06126f8bfc5444ad666e8ba21.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1184" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/9e4198383730a6e7036b2c7cf50554d0.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1185" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/5a5a608278ba2b74aff5fb081f7df81c.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1186" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/02fb63567e1b107d549d5d15e922424b.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1187" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/4d6e24add7d7c5d618aeef1795dba038.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1188" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/622a116daf32436d38271cd6c49ee3af.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1189" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/cfe53c7856b98c0bf010ebcfc8cbfa29.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1190" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/91cb8fef8fe424a1ae2406aa58a380d8.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1191" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/689bf09a2c1040423fba7a8db0248211.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1192" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/b5070669b92945ffb20fadc3ea552d16.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1193" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/0f683ab474c5a018baa3bdd53330c9ae.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1194" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/e24ce5f542c45a73c05172d9c4f38e2e.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1202" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/f271b7c4e1a5c41745580804a2b2b458.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1203" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/2c6580da38af7ceff65addfda59f06b9.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1204" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/1da11f6f0c244abc5abffc0556730e91.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1205" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/f226d6ddcb4f38c2c23f02008bbdf737.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1206" width="1920" height="1080">
+                <img loading="lazy" src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/9a47085894be9870158c9ad4e23c1a24.png" class="learnworlds-image learnworlds-element lw-logo js-change-image-node" data-node-type="image" id="el_1697997438894_1207" width="1920" height="1080">
+            </div>
+            <p class="more">+ many more</p>
+        </section>
+        
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest courses and learning resources</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2><span class="black-text">VIRTUAL</span> <span class="blue-text">Learning</span></h2>
+                <p>Where education meets real-world needs.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/mr_aaryan_0003?igsh=NzNueWkzcmN0a200"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/aryan345765?t=WMPCSwOr4X3UZAILA_Z7Pw&s=08"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/ariyan.behera.5209"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/aryan-behera-0009877554567899643"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com/@mrvelocity5819?si=LczUPx9QnPTPuDsZ"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>HELPFUL LINKS</h3>
+                <ul>
+                    <li><a href="coming soon.html">Courses</a></li>
+                    <li><a href="coming soon.html">Pricing</a></li>
+                    <li><a href="coming soon.html">Blog</a></li>
+                    <li><a href="coming soon.html">Certificates</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>SUPPORT</h3>
+                <ul>
+                    <li><a href="coming soon.html">Help Center</a></li>
+                    <li><a href="coming soon.html">FAQ</a></li>
+                    <li><a href="coming soon.html">Contact Us</a></li>
+                    <li><a href="coming soon.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>GET IN TOUCH</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@virtuallearning.com">info@virtuallearning.com</a></p>
+                <p><i class="fas fa-phone"></i> +91-7852929549</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bhubaneswar, Odisha</p>
+                <p><i class="fas fa-clock"></i> Support: Mon-sat, 9am-6pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="coming soon.html">Privacy Policy</a>
+                <a href="coming soon.html">Terms & Conditions</a>
+                <a href="coming soon.html">Cookie Policy</a>
+            </div>
+            <p>Copyright © 2025 Virtual Learning. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="coming soon.html" class="mobile-nav-item">
+            <i class="fas fa-compass"></i>
+            <span>Explore</span>
+        </a>
+        <a href="coming soon.html" class="mobile-nav-item">
+            <i class="fas fa-book"></i>
+            <span>Library</span>
+        </a>
+        <a href="coming soon.html" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+    </div>
+
+    <script src="Home Page.js"></script>
+</body>
+</html>

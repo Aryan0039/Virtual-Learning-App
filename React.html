@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRTUAL Learning</title>
+    <link rel="icon" href="https://img.freepik.com/free-vector/vector-education-logo_779267-2080.jpg?t=st=1743703346~exp=1743706946~hmac=24aa24a5fec531eab2356cd129c8c2875ca1f4471badd55af00149cb3114898d&w=826">
+    <!-- <link rel="stylesheet" href="courses-2.css"> -->
+     <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Platform Info */
+.platform-info {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.platform-info h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.platform-info p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: slideIn 1s ease-in-out;
+}
+
+progress {
+    width: 60%;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #4caf50;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+#progressText {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto; /* Allow vertical scroll */
+}
+
+/* Video Card */
+.vid-list {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vid-list:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.video-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px 15px 0 0;
+}
+
+.vid-info {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.vid-info a {
+    font-size: 1.1rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.vid-info a:hover {
+    color: #4caf50;
+}
+
+.vid-info p {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin: 5px 0;
+}
+
+.mark-btn {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mark-btn:disabled {
+    background-color: #b2b2b2;
+    cursor: not-allowed;
+}
+
+.mark-btn:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+/* Celebration Message */
+.celebration-message {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.5s ease-in-out;
+}
+
+.celebration-message h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.celebration-message p {
+    font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .platform-info h1 {
+        font-size: 2rem;
+    }
+
+    .platform-info p {
+        font-size: 1rem;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+     </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Platform Info -->
+        <div class="platform-info">
+            <h1>React</h1>
+            <p>Welcome to our react js courses! Explore a wide range of courses to enhance your skills and knowledge. Start learning today!</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <label for="progressBar">Course Progress:</label>
+            <progress id="progressBar" value="0" max="100"></progress>
+            <span id="progressText">0% Complete</span>
+        </div>
+
+
+        <!-- Video Grid -->
+        <div class="video-grid">
+            <!-- Video Card 1 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DIAdcsa6gAQ?si=0hI88maYfQcsSwW2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Introduction to react</a>
+                    <p>By Wscube Tech</p>
+                    <p>Learn the basics of react with this beginner-friendly course.||Lecture-1</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+            <!-- Video Card 2 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/D5H3QF463Cw?si=ENnnQP37XPdXThq5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Import/export module concept in react js </a>
+                    <p>By Wscube Tech</p>
+                    <p>Master react course||Lecture-2</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+            <!-- Video Card 3 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/109CyZg9oeg?si=j--j5R5NxoaKBu3H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">pre recusitive</a>
+                    <p>By Wscube Tech</p>
+                    <p>What you should know before learning react js||Lecture-3</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 4 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ioere3355cI?si=jPBF1L-nYx8oX2hX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Installation process</a>
+                    <p>By Wscube Tech</p>
+                    <p>Install and setup your first project in react js||Lecture-4</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 5 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/H5-ZPc1_PkQ?si=ikB9yR2XwnmYLuU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Manage and structure any react js project</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-5</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 6 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/zwnZTWTMIgM?si=Z2ciKaI-xH3Ll_Rl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">jsx in react js</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-6</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 7 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nCwT2zsK1Po?si=kj-NSM4RJfpryI18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">what are react components</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-7</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 8 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/54oI_UYcum4?si=SC8Y4eXBjfSIxe56" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">setup+Adding bootstrap to react js</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-8</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 9 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gDinhN4BSuE?si=PTwywTe2nC0wAsus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Making of a responsive cards in react js+bootstrap</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-9</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 10 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/o-Qa_D5YJKw?si=xuOFZvjRsO7z616V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Understanding props and prop types in react js</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-10</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 11 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1TnO0OtQIvs?si=OubAQoh6zDxrQz6X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">children props in react js</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-11</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+             <!-- Video Card 12 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/w7hKWFtvqTw?si=mnpryoocJRoFzRKH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">passing of data to child components in react js</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-12</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+            <!-- Video Card 13 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XspIf726yN4?si=Ab-SyJbLJAz6ipma" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">add and use font awesome icon in react js</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-14</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+            <!-- Video Card 14 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4v8F4Gw8VOM?si=Eu8LI_Q6p3r-vLmz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">set up tailwind css in react js</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-14</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+            <!-- Video Card 15 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/s-KP97ERbdg?si=r6DrYEW8db9ldk1_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">import css and image in react js</a>
+                    <p>By Wscube Tech</p>
+                    <p>Lecture-15</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            
+
+
+            <!-- Add more video cards here -->
+        </div>
+
+        <!-- Celebration Message -->
+        <div id="celebrationMessage" class="celebration-message">
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p>You have completed all the courses. Keep up the great work!</p>
+        </div>
+    </div>
+
+    <!-- <script src="courses-2.js"></script> -->
+     <script>
+        let totalVideos = document.querySelectorAll('.vid-list').length;
+let watchedVideos = 0;
+
+function markAsWatched(button) {
+    if (!button.disabled) {
+        button.disabled = true;
+        button.textContent = "✔ Watched";
+        watchedVideos++;
+        updateProgress();
+    }
+}
+
+function updateProgress() {
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+    const progress = (watchedVideos / totalVideos) * 100;
+    progressBar.value = progress;
+    progressText.textContent = `${Math.round(progress)}% Complete`;
+
+    if (watchedVideos === totalVideos) {
+        showCelebration();
+    }
+}
+
+function showCelebration() {
+    const celebrationMessage = document.getElementById("celebrationMessage");
+    celebrationMessage.style.display = "block";
+}
+
+     </script>
+</body>
+</html>

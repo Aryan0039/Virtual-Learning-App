@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - My Tutorial</title>
+    <link rel="icon" href="https://img.freepik.com/free-vector/vector-education-logo_779267-2080.jpg?t=st=1743703346~exp=1743706946~hmac=24aa24a5fec531eab2356cd129c8c2875ca1f4471badd55af00149cb3114898d&w=826">
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to top left, #ff8a00, #da1b60, #00bcd4); /* Gradient background */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 450px;
+            margin: auto;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9); /* Transparent white background for the form */
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px); /* Adding a blur effect behind the form */
+        }
+
+        .form {
+            margin-top: 10px;
+        }
+
+        .form h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form input, .form select {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            background-color: #f7f7f7;
+            transition: border-color 0.3s ease;
+        }
+
+        .form input:focus, .form select:focus {
+            border-color: #ff8a00; /* Warm color for focus state */
+            outline: none;
+            background-color: #fff;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff8a00; /* Warm orange color for buttons */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form button:hover {
+            background-color: #da1b60; /* A vibrant pink for the hover state */
+        }
+
+        .form a {
+            color: #deb17e; /* Bright color for the Sign Up link */
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .form a:hover {
+            color: #feb47b;
+            text-decoration: underline;
+        }
+
+        .form p {
+            font-size: 14px;
+            color: red;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-direction: column;
+        }
+
+        .logo img {
+            width: 80px;
+            margin-bottom: 5px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff8a00;
+            /* text-transform: uppercase; */
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .gender-container {
+            display: flex;
+            justify-content: flex-start; /* Aligns items to the left */
+            align-items: center;
+            gap: 20px; /* Space between options */
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .gender-container label {
+            display: flex;
+            align-items: center;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .gender-container input[type="radio"] {
+            margin-right: 8px; /* Space between radio button and label */
+            accent-color: #ff8a00; /* Custom color for the radio button */
+        }
+
+        .gender-container .gender-label {
+            color: #333; /* Same color as the radio button */
+            font-weight: bold;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 10px 0;
+            font-size: 14px;
+            gap: 10px; /* Space between checkbox and label */
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: rgb(0, 255, 0); /* Custom color for the checkbox */
+        }
+
+        .checkbox-container label {
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-container label:hover {
+            color: #ff8a00; /* Change label color to match accent color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <!-- Register Form -->
+            <div id="register-form" class="form">
+                <div class="logo">
+                    <img src="https://img.freepik.com/free-vector/vector-education-logo_779267-2080.jpg?t=st=1742472590~exp=1742476190~hmac=6a7b921735f3a7b0c561d445af4a634c7a45d2595d1c6545be1a32403ffb04e1&w=826" alt="My Tutorial Logo">
+                    <h1>VIRTUAL Learning</h1>
+                </div>
+                <h2>Sign Up</h2>
+                <form id="registerForm">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                    <input type="tel" id="phone" placeholder="Phone Number (optional)">
+                    <input type="date" id="dob" placeholder="Date of Birth">
+                    <div class="gender-container">
+                        <span class="gender-label">Gender :</span>
+                        <label><input type="radio" name="gender" value="male" required> Male</label>
+                        <label><input type="radio" name="gender" value="female" required> Female</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the Terms & Conditions</label>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                    <div id="register-error" class="error-message"></div>
+                </form>
+                <p>Already have an account? <a href="login.html">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        // Handle registration
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+    
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+    
+            // Check if the email already exists
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const emailExists = users.some(user => user.email === email);
+    
+            const registerError = document.getElementById('register-error');
+            if (emailExists) {
+                registerError.textContent = 'This email is already registered!';
+            } else {
+                // Save user data to localStorage
+                users.push({ email, password });
+                localStorage.setItem('users', JSON.stringify(users));
+                // Set login flag in localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                alert('Registration successful! Please login.');
+                window.location.href = 'login.html'; // Redirect to Home Page
+            }
+        });
+    </script>
+</body>
+</html>

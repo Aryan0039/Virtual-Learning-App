@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRTUAL Learning</title>
+    <link rel="icon" href="https://img.freepik.com/free-vector/vector-education-logo_779267-2080.jpg?t=st=1743703346~exp=1743706946~hmac=24aa24a5fec531eab2356cd129c8c2875ca1f4471badd55af00149cb3114898d&w=826">
+    <!-- <link rel="stylesheet" href="courses-2.css"> -->
+     <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Platform Info */
+.platform-info {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.platform-info h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.platform-info p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: slideIn 1s ease-in-out;
+}
+
+progress {
+    width: 60%;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #4caf50;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+#progressText {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto; /* Allow vertical scroll */
+}
+
+/* Video Card */
+.vid-list {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vid-list:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.video-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px 15px 0 0;
+}
+
+.vid-info {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.vid-info a {
+    font-size: 1.1rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.vid-info a:hover {
+    color: #4caf50;
+}
+
+.vid-info p {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin: 5px 0;
+}
+
+.mark-btn {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mark-btn:disabled {
+    background-color: #b2b2b2;
+    cursor: not-allowed;
+}
+
+.mark-btn:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+/* Celebration Message */
+.celebration-message {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.5s ease-in-out;
+}
+
+.celebration-message h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.celebration-message p {
+    font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .platform-info h1 {
+        font-size: 2rem;
+    }
+
+    .platform-info p {
+        font-size: 1rem;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+     </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Platform Info -->
+        <div class="platform-info">
+            <h1>Programming C</h1>
+            <p>Welcome to our Programming C courses! Explore a wide range of courses to enhance your skills and knowledge. Start learning today!</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <label for="progressBar">Course Progress:</label>
+            <progress id="progressBar" value="0" max="100"></progress>
+            <span id="progressText">0% Complete</span>
+        </div>
+
+
+        <!-- Video Grid -->
+        <div class="video-grid">
+            <!-- Video Card 1 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rQoqCP7LX60?si=OUuBnOEpH-TelKrL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Introduction to Programming</a>
+                    <p>By John Doe</p>
+                    <p>Learn the basics of programming with this beginner-friendly course.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+            <!-- Video Card 2 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7PSfRdeY5qE?si=7rm0aTbaMM6aJMTx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Jane Smith</p>
+                    <p>Master advanced JavaScript concepts and build real-world applications.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+
+            <!-- Video Card 3 -->
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/wYvrBXUfFfw?si=2kcPZFi8jTCbzgoO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/wYvrBXUfFfw?si=qtjYOVKpEm-VOwMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/mIY3QVktHU8?si=mKq4YBt0rLbT3c9e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Bd-1YM8taBc?si=tPAmT0LImMvGkCMF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/aWKJ5lRgI3U?si=pTIevE1RaQa2jgO4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sEiMDFdbPGo?si=QKND4rSXib65CkXq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/8qKp63Ox3vQ?si=uAT72LXgozHEKpBn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nDmULDo8D18?si=At_kWjtx9tQGc8yz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nDmULDo8D18?si=gq8bUZ0X85M12Rnx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/9s1_FWWxvlg?si=Kt2cQNlCKIVE8qH9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+           <!-- <div class="vid-list">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/C6XLIfzNZm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                     <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/C6XLIfzNZm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+            <div class="vid-list">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/C6XLIfzNZm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="vid-info">
+                    <a href="#">Programming C</a>
+                    <p>By Alex Johnson</p>
+                    <p>Become a full-stack web developer with this comprehensive bootcamp.</p>
+                    <button class="mark-btn" onclick="markAsWatched(this)">Mark as Watched</button>
+                </div>
+            </div>
+             -->
+
+
+            <!-- Add more video cards here -->
+        </div>
+
+        <!-- Celebration Message -->
+        <div id="celebrationMessage" class="celebration-message">
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p>You have completed the course. Keep up the great work!</p>
+        </div>
+    </div>
+
+    <!-- <script src="courses-2.js"></script> -->
+     <script>
+        let totalVideos = document.querySelectorAll('.vid-list').length;
+let watchedVideos = 0;
+
+function markAsWatched(button) {
+    if (!button.disabled) {
+        button.disabled = true;
+        button.textContent = "✔ Watched";
+        watchedVideos++;
+        updateProgress();
+    }
+}
+
+function updateProgress() {
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+    const progress = (watchedVideos / totalVideos) * 100;
+    progressBar.value = progress;
+    progressText.textContent = `${Math.round(progress)}% Complete`;
+
+    if (watchedVideos === totalVideos) {
+        showCelebration();
+    }
+}
+
+function showCelebration() {
+    const celebrationMessage = document.getElementById("celebrationMessage");
+    celebrationMessage.style.display = "block";
+}
+
+     </script>
+</body>
+</html>
