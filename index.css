@@ -617,3 +617,11 @@ nav a:hover {
         max-width: 120px;
     }
 }
+/* Add this at the end of your CSS file */
+@media (max-width: 767px) {
+    .mentor-img {
+        height: 300px; /* Adjust this value as needed */
+        width: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure the image covers the space nicely */
+    }
+}
