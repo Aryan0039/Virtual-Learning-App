@@ -564,10 +564,6 @@ nav a:hover {
         width: 120px;
         max-width: 160px;
     }
-    .mentor-img{
-        height: 350px;
-        width: auto;
-    }
 }
 
 @media (max-width: 576px) {
@@ -608,10 +604,6 @@ nav a:hover {
         min-width: 100%;
         margin-bottom: 20px;
     }
-    .mentor-img{
-        height: 300px;
-
-    }
 }
 
 @media (max-width: 400px) {
@@ -622,8 +614,5 @@ nav a:hover {
     .company-logos img {
         width: 90px;
         max-width: 120px;
-    }
-    .mentor-img{
-        height: 250px;
     }
 }
