@@ -615,10 +615,4 @@ nav a:hover {
         width: 90px;
         max-width: 120px;
     }
-}
-@media (max-width: 768px) {
-    .mentor-img {
-        height: 400px;
-        width: auto;
-    }
-}
+ }
