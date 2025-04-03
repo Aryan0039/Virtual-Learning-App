@@ -1,5 +1,5 @@
-/* ===== GLOBAL STYLES ===== */
-* {
+ /* ===== GLOBAL STYLES ===== */
+ * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -243,14 +243,14 @@ nav a:hover {
 /* ===== COMPANIES SECTION - ENLARGED ===== */
 .companies {
     background: #e7e0e0;
-    padding: 60px 20px;
+    padding: 60px 20px; /* Increased padding */
     color: rgb(32, 35, 197);
     text-align: center;
 }
 
 .companies h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
+    font-size: 2rem; /* Larger font size */
+    margin-bottom: 30px; /* More spacing */
     font-weight: 700;
 }
 
@@ -258,26 +258,26 @@ nav a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 30px; /* Increased gap */
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .company-logos img {
-    width: 150px;
+    width: 150px; /* Larger default size */
     height: auto;
-    max-width: 200px;
+    max-width: 200px; /* Increased max width */
     transition: all 0.3s ease;
     object-fit: contain;
 }
 
 .company-logos img:hover {
-    transform: scale(1.15);
+    transform: scale(1.15); /* More pronounced hover effect */
 }
 
 .more {
-    font-size: 1.2rem;
-    margin-top: 30px;
+    font-size: 1.2rem; /* Larger font */
+    margin-top: 30px; /* More spacing */
     color: #666;
     font-weight: 500;
 }
@@ -445,77 +445,77 @@ nav a:hover {
         justify-content: space-between;
         align-items: center;
     }
-
+    
     .hero-content {
         text-align: left;
         padding-right: 40px;
     }
-
+    
     .hero h1 {
         font-size: clamp(28px, 5vw, 42px);
     }
-
+    
     .placement-btn, .explore-btn {
         padding: 12px 24px;
         font-size: 16px;
     }
-
+    
     /* Stats */
     .stats {
         padding: 50px 20px;
     }
-
+    
     .stats h2 {
         font-size: 24px;
     }
-
+    
     .stat-number {
         font-size: 32px;
     }
-
+    
     .stat-label {
         font-size: 16px;
     }
-
+    
     /* Placement */
     .placement {
         padding: 60px 20px;
     }
-
+    
     .placement h3 {
         font-size: 28px;
     }
-
+    
     /* About Developer */
     .about-developer {
         padding: 60px 20px;
     }
-
+    
     .about-developer h2 {
         font-size: 32px;
     }
-
+    
     .developer-content h3 {
         font-size: 24px;
     }
-
+    
     .developer-content p {
         font-size: 16px;
     }
-
+    
     /* Footer */
     .footer {
         padding: 50px 20px;
     }
-
+    
     .footer-container {
         gap: 30px;
     }
-
+    
     .footer-logo h2 {
         font-size: 28px;
     }
-
+    
     .social-links a {
         width: 40px;
         height: 40px;
@@ -526,11 +526,11 @@ nav a:hover {
     .companies {
         padding: 50px 15px;
     }
-
+    
     .company-logos {
         gap: 25px;
     }
-
+    
     .company-logos img {
         width: 130px;
         max-width: 180px;
@@ -542,34 +542,31 @@ nav a:hover {
     nav {
         display: none;
     }
-
+    
     .menu-toggle {
         display: block;
     }
-
+    
     .companies {
         padding: 40px 15px;
     }
-
+    
     .companies h2 {
         font-size: 1.8rem;
         margin-bottom: 25px;
     }
-
+    
     .company-logos {
         gap: 20px;
     }
-
+    
     .company-logos img {
         width: 120px;
         max-width: 160px;
     }
-    
-    /* Mentor image adjustments for mobile */
-    .mentor-img {
-        height: 350px; /* Increased height for mobile */
+    .mentor-img{
+        height: 350px;
         width: auto;
-        object-fit: cover;
     }
 }
 
@@ -579,42 +576,41 @@ nav a:hover {
         flex-direction: column;
         gap: 5px;
     }
-
+    
     .stat-item {
         padding: 5px;
     }
-
+    
     .companies {
         padding: 30px 10px;
     }
-
+    
     .companies h2 {
         font-size: 1.5rem;
         margin-bottom: 20px;
     }
-
+    
     .company-logos {
         gap: 15px;
     }
-
+    
     .company-logos img {
         width: 100px;
         max-width: 140px;
     }
-
+    
     .more {
         font-size: 1rem;
         margin-top: 20px;
     }
-
+    
     .footer-links, .footer-contact, .footer-social {
         min-width: 100%;
         margin-bottom: 20px;
     }
-    
-    /* Further adjustment for very small screens */
-    .mentor-img {
+    .mentor-img{
         height: 300px;
+
     }
 }
 
@@ -622,14 +618,12 @@ nav a:hover {
     .company-logos {
         gap: 12px;
     }
-
+    
     .company-logos img {
         width: 90px;
         max-width: 120px;
     }
-    
-    /* Final adjustment for smallest screens */
-    .mentor-img {
+    .mentor-img{
         height: 250px;
     }
-} 
+}
